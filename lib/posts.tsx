@@ -8,7 +8,7 @@ import matter from 'gray-matter'
 const postsDirectory = path.join(process.cwd(), 'posts')
 
 // 今回は、md形式のファイルからデータを取得しているが、外部APIやDBに対しても同様にアクセス可能。
-// それは、getStaticPropsがサーバーサイドのみで走っているから。
+// getStaticPropsがサーバーサイドのみで走っているから。
 export function getSortedPostsData() {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory)
@@ -36,7 +36,7 @@ export function getSortedPostsData() {
   })
   // Sort posts by date
   // 日時でPostデータをソート
-  return allPostsData.sort((a, b) => {
+  return allPostsData.sort((a: any, b: any) => {
     if (a.date < b.date) {
       return 1
     } else {
